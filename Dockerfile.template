@@ -1,0 +1,24 @@
+# Using the official tensorflow serving image from docker hub as base image
+FROM tensorflow/serving
+
+# https://medium.com/ml-bytes/how-to-create-a-tensorflow-serving-container-for-aws-sagemaker-4853842c9751
+
+# Installing NGINX, used to rever proxy the predictions from SageMaker to TF Serving
+RUN apt-get update && apt-get install -y --no-install-recommends nginx gettext-base 
+
+ARG MODELNAME_ARG
+ENV MODELNAME=${MODELNAME_ARG}
+
+# Copy our model folder to the container
+COPY ./${MODELNAME} /${MODELNAME}
+
+# Copy NGINX configuration to the container
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# nginx configuration files don't play nice with env variables
+RUN envsubst < /etc/nginx/nginx.conf | tee /etc/nginx/nginx.conf
+
+# starts NGINX and TF serving pointing to our model
+ENTRYPOINT service nginx start | tensorflow_model_server --rest_api_port=8501 \
+ --model_name=${MODELNAME} \
+ --model_base_path=/${MODELNAME}
