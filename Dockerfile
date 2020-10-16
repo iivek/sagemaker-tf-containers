@@ -14,6 +14,5 @@ RUN curl -sSL https://get.docker.com/ | sh
 COPY . /app
 WORKDIR /app
 
-# generate Dockerfile
 RUN mkdir ${SAVEDMODEL_LOCAL}
 ENTRYPOINT ["/bin/bash", "./model_server.sh"]
