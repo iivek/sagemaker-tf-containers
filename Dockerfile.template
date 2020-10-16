@@ -1,7 +1,4 @@
-# Using the official tensorflow serving image from docker hub as base image
 FROM tensorflow/serving
-
-# https://medium.com/ml-bytes/how-to-create-a-tensorflow-serving-container-for-aws-sagemaker-4853842c9751
 
 # Installing NGINX, used to rever proxy the predictions from SageMaker to TF Serving
 RUN apt-get update && apt-get install -y --no-install-recommends nginx gettext-base 
