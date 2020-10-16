@@ -1,10 +1,9 @@
-# TensorFlow Serving container for AWS SageMaker
+# TensorFlow Serving containers for AWS SageMaker
 
 ## Overview
 
 Building on [a good read by Márcio Dos Santos](https://medium.com/ml-bytes/how-to-create-a-tensorflow-serving-container-for-aws-sagemaker-4853842c9751),
-the repository facilitates containerization of Tensorflow server
-containers for SageMaker and is by itself a container.
+the repository facilitates containerization of TensorFlow Serving for SageMaker and is by itself a container.
 
 ## Usage
 
