@@ -14,13 +14,11 @@ git clone https://github.com/iivek/sagemaker-tf-containers.git
 cd sagemaker-tf-containers && docker build -t sagemaker-tf .
 ```
 
-Create serving image from the model in `sagemaker-tf-containers/models/<your-saved-model>`
+Run docker image to create serving image from the model in `sagemaker-tf-containers/models/<your-saved-model>`
 ```
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD/models_works:/app/models sagemaker-tf \
 -model_name <your_saved_model> -version <version> -docker_name <docker_name>
 ```
-
-Run the serving image `cd <your_saved_model> && sh docker_run.sh`
 
 
 ## Example
