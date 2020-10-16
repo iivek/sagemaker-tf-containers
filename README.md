@@ -38,9 +38,9 @@ docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD/models:/app/mode
 Notice that the invocation needs to bind sockets of our Docker host to the sockets of Docker-within-Docker that actually builds the
 serving image.
 
-To locally test the serving image, let's run it,
+To locally test the serving image, let's run it
 ```
-cd models && docker run --rm -p 8080:8080 half_plus_two_sagemaker
+docker run --rm -p 8080:8080 half_plus_two_sagemaker
 ```
 and send a request to get predictions
 ```
