@@ -24,12 +24,12 @@ docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD/models_works:/ap
 ## Example
 We'll build serving image from [saved_model_half_plus_two](https://www.tensorflow.org/tfx/serving/docker) demo model.
 
-We first download the servable to `sagemaker-tf-containers/models/`:
+Let's download the servable to `sagemaker-tf-containers/models/`
 ```
 git clone https://github.com/tensorflow/serving /tmp/serving && \
 cp -r /tmp/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_three ./models
 ```
-Running the `sagemaker-tf` container to build the server image named `half_plus_two_servable` 
+Running the `sagemaker-tf` container to build server image named `half_plus_two_servable` 
 ```
 docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD/models:/app/models sagemaker-tf \
 -model_name saved_model_half_plus_three -version 0.9 -docker_name half_plus_two_servable
