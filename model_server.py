@@ -82,9 +82,7 @@ if __name__ == '__main__':
     parser.add_argument('-version')
     parser.add_argument('-model_name')
     parser.add_argument('-docker_name')
-    print(parser)
     arg_dict = vars(parser.parse_args())
-    print(arg_dict)
         
     docker_commands = docker_build_automation(**arg_dict)
     # save the command to build the image...
