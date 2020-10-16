@@ -26,6 +26,7 @@ We'll build serving image from [saved_model_half_plus_two](https://www.tensorflo
 
 Let's download the servable to `sagemaker-tf-containers/models/`
 ```
+mkdir models
 git clone https://github.com/tensorflow/serving /tmp/serving && \
 cp -r /tmp/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_three ./models
 ```
